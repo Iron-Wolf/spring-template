@@ -1,0 +1,31 @@
+server.port: 20000
+logging.level:
+  root: WARN
+  org.springframework.boot: INFO
+  com.test.job-config: INFO
+
+spring:
+  application.name: "job-sql"
+  main.banner-mode: "off"
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      client-id: kafka-client
+      properties:
+        enable.idempotence: false
+
+management:
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
+  endpoints.web.exposure.include: "prometheus,health,info,metric"
+  metrics.export.prometheus.enabled: true
+
+s3:
+  bucket.name: /bucket
+  accessKey: ak
+  secretKey: sk
+  host: http://host
+
+job:
+  config-file: "config.yml"

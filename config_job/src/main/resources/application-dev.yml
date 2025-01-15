@@ -1,0 +1,8 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+
+s3:
+  accessKey: ak
+  secretKey: sk
+  host: http://host

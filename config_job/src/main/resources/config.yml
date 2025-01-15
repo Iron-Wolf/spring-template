@@ -1,0 +1,6 @@
+metadata:
+  filename: "request.sql"
+  output: "/s3/path/"
+
+database:
+  datasource: "jdbc:postgresql://localhost:5432/db?currentSchema=schema"
