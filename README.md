@@ -17,10 +17,10 @@ Override settings and path config.~~
 Customize Maven with a file : `.mvn/maven.config`  
 ```properties
 # sample for Windows (remove this line in the file)
--Dmaven.repo.local=%userprofile%\path\to\.m2\repository
+-Dmaven.repo.local=..\.m2\repository
 # must override the two 'settings' to work (remove this line in the file)
---settings=%userprofile%\path\to\.m2\settings.xml
---global-settings=%userprofile%\path\to\.m2\settings.xml
+--settings=..\.m2\settings.xml
+--global-settings=..\.m2\settings.xml
 ```
 Config ref : https://maven.apache.org/ref/current/maven-embedder/cli.html  
 Other ref : https://maven.apache.org/ref/current/maven-model-builder/index.html  
