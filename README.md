@@ -1,8 +1,7 @@
 # spring-template
 
-Test with a sideway YAML config file loading in a SpringBoot app, with `ObjectMapper` and `YAMLFactory`.  
-Projet is juste a test, this has nothing of value in it.  
-Maybe the conf is not up to date, with the lateast Spring standard but this is working so...
+Test with a side YAML config file loaded in a SpringBoot app (with `ObjectMapper` and `YAMLFactory`).  
+This is just a test.  
 
 ## IntelliJ stuff
 ~~If IntelliJ is lost with lombock processors, go to : `Settings | Build, Execution, Deployement | Compiler | Annotation Processors`  
@@ -24,3 +23,17 @@ Customize Maven with a file : `.mvn/maven.config`
 ```
 Config ref : https://maven.apache.org/ref/current/maven-embedder/cli.html  
 Other ref : https://maven.apache.org/ref/current/maven-model-builder/index.html  
+
+## Override classpath directory from CLI
+To add file in the ressources (not only the application.yml), you can use this syntax :  
+`java -cp new-config:application.jar application.main.class`  
+- `new-config` : a directory containing the overridden files
+- `application.main.class` :  fully qualified name of the class with the 'main' (can be found in MANIFEST.MF)
+
+There is a catch with the delimiter :  
+- windows : `;`
+  - ✔ `java -cp C:\Users\path-to-project\target\project.jar org.springframework.boot.loader.launch.JarLauncher`
+  - ❌ `java -cp src\test\ressources\donnees\UC001\SC001;C:\Users\path-to-projec\target\project.jar org.springframework.boot.loader.launch.JarLauncher`
+- linux : `:`
+  - ✔ `java -cp /c/Users/path-to-projec/target/project.jar org.springframework.boot.loader.launch.JarLauncher`
+  - ✔ `java -cp src/test/ressources/donnees/UC001/SC001:/c/Users/path-to-projec/target/project.jar org.springframework.boot.loader.launch.JarLauncher`
