@@ -32,8 +32,8 @@ To add file in the ressources (not only the application.yml), you can use this s
 
 There is a catch with the delimiter :  
 - windows : `;`
-  - ✔ `java -cp C:\Users\path-to-project\target\project.jar org.springframework.boot.loader.launch.JarLauncher`
-  - ❌ `java -cp src\test\ressources\donnees\UC001\SC001;C:\Users\path-to-projec\target\project.jar org.springframework.boot.loader.launch.JarLauncher`
+  - no dir : `java -cp C:\Users\path-to-project\target\project.jar org.springframework.boot.loader.launch.JarLauncher`
+  - dir : `java -cp "src\test\ressources\donnees\UC001\SC001;C:\Users\path-to-projec\target\project.jar" org.springframework.boot.loader.launch.JarLauncher`
 - linux : `:`
-  - ✔ `java -cp /c/Users/path-to-projec/target/project.jar org.springframework.boot.loader.launch.JarLauncher`
-  - ✔ `java -cp src/test/ressources/donnees/UC001/SC001:/c/Users/path-to-projec/target/project.jar org.springframework.boot.loader.launch.JarLauncher`
+  - no dir : `java -cp /c/Users/path-to-projec/target/project.jar org.springframework.boot.loader.launch.JarLauncher`
+  - dir : `java -cp src/test/ressources/donnees/UC001/SC001:/c/Users/path-to-projec/target/project.jar org.springframework.boot.loader.launch.JarLauncher`
