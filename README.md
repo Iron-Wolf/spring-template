@@ -1,7 +1,30 @@
 # spring-template
 
 Test with a side YAML config file loaded in a SpringBoot app (with `ObjectMapper` and `YAMLFactory`).  
-This is just a test.  
+This is just a test !  
+
+## What's going on here ?
+The goal here is to load a `config.yml` file specified inside the `application.yml` file.  
+Here is the file structure :  
+```
+           ┌─/java/.../configuration───┐       ┌─/resources──────────────────────────┐ 
+           │                           │       │                                     │ 
+build      │  JobConfigLoader.java ────┼───────┼► application.yml                    │ 
+the bean┌--┼---┘                       │       │     job.config-file: "config.yml"   │ 
+        └--┼► JobConfig.java  -------- ┼-------┼► config.yml                         │ 
+  auto- ┌──┼───┘                       │       │     metadata.filename: "request.sql"│ 
+ inject └──┼► Metadata.java  ──────────┼───────┼► request.sql                        │ 
+           │   │                       │       │     SELECT * FROM ...               │ 
+           └───┼───────────────────────┘       └──────────┼──────────────────────────┘ 
+               │                                          │                            
+               │    ┌─/java/.../dao────┐                  │                            
+               │    │                  │                  │                            
+               └───►│  BasicRepo.java  │◄─────────────────┘                            
+                    │                  │                                               
+                    └──────────────────┘                                               
+```
+The content of the `config.yml` file can be changed without modifying the `application.yml` file.
+
 
 ## IntelliJ stuff
 ~~If IntelliJ is lost with lombock processors, go to : `Settings | Build, Execution, Deployement | Compiler | Annotation Processors`  
